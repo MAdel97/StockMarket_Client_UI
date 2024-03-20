@@ -1,0 +1,29 @@
+1- Replace this server Name (myname) with your own server name at line 47 at file 'Startup.cs'
+  services.AddDbContext<StockUpdatesContext>(options =>
+                  options.UseSqlServer("Server=MohamedAdel\\SQLEXPRESS;Database=ClientStock;Trusted_Connection=True;MultipleActiveResultSets=true"));
+
+
+2- again replace the server name at line 36 at file 'StockUpdatesContext' within the project folder
+
+
+3- Run these two migrations command at the package console manager to generate the database
+	-dotnet ef migrations add fixdatabase
+	-dotnet ef database update
+
+
+
+4- Go to the frontend folder at the project root and run this command on cmd to install all the nodejs dependencies and to run the 
+angular application
+	-npm i 
+	-npm start
+
+5- You can also observe from the SQL Server explorer that the Stock table within database gets populated programmatically each 6 hours 
+	after data gets fetched from polygon stock API
+
+	-you can adjust the delay time by changing this line at 'ScopedEmailNotifier.cs'
+                await Task.Delay(21600000, stoppingToken); //time is calculated in milliseconds 
+
+6- You can also add, update, get or delete all clients from the angular table, you can also sort filter all columns 
+
+
+
